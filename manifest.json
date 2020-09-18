@@ -3,8 +3,8 @@
   "short_name": "Kitty",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffe9d2",
-  "theme_color": "#ffe1c4",
+  "background_color": "#009688",
+  "theme_color": "#00897b",
   "orientation": "portrait-primary",
   "icons": [
     {
