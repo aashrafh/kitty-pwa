@@ -1,0 +1,68 @@
+:root {
+  --primary: #009688;
+  --secondary: #00897b;
+  --title: #00695c;
+}
+
+nav {
+  background: var(--primary);
+  border-bottom: 2px solid var(--secondary);
+}
+nav a {
+  text-transform: uppercase;
+  color: var(--title);
+}
+nav a span {
+  font-weight: bold;
+}
+
+.cats {
+  margin-top: 20px;
+}
+.card-panel.cat {
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 1px 3px rgba(90, 90, 90, 0.1);
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr;
+  grid-template-areas: "image bio delete";
+  position: relative;
+}
+.cat img {
+  grid-area: image;
+  max-width: 60px;
+}
+.cat-details {
+  grid-area: bio;
+  margin-top: 6px;
+}
+.cat-delete {
+  grid-area: delete;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.cat-delete i {
+  font-size: 18px;
+}
+.cat-name {
+  font-weight: bold;
+}
+.cat-bio {
+  font-size: 0.8em;
+}
+
+.add-btn {
+  background: var(--title);
+}
+input {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.side-form button {
+  background: var(--title);
+  box-shadow: 1px 1px 3px rgba(90, 90, 90, 0.2);
+}
+form .input-field {
+  margin-top: 30px;
+}
