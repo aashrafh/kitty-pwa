@@ -1,0 +1,31 @@
+{
+  "name": "Kitty",
+  "short_name": "Kitty",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffe9d2",
+  "theme_color": "#ffe1c4",
+  "orientation": "protrait-primary",
+  "icons": [
+    {
+      "src": "/img/icons/icon-72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/img/icons/icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/img/icons/icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/img/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
