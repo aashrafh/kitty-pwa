@@ -46,7 +46,7 @@
       <div class="card-panel cat white row">
         <img src="/img/cat.jpg" alt="Cat thumb">
         <div class="cat-details">
-          <div class="cat-title">Lilly Jack</div>
+          <div class="cat-name">Lilly Jack</div>
           <div class="cat-bio">The cat is a domestic species of small carnivorous mammal</div>
         </div>
         <div class="cat-delete"><i class="material-icons">delete_outline</i></div>
@@ -54,7 +54,7 @@
       <div class="card-panel cat white row">
         <img src="/img/cat.jpg" alt="Cat thumb">
         <div class="cat-details">
-          <div class="cat-title">Lilly Jack</div>
+          <div class="cat-name">Lilly Jack</div>
           <div class="cat-bio">The cat is a domestic species of small carnivorous mammal</div>
         </div>
         <div class="cat-delete"><i class="material-icons">delete_outline</i></div>
@@ -62,7 +62,7 @@
       <div class="card-panel cat white row">
         <img src="/img/cat.jpg" alt="Cat thumb">
         <div class="cat-details">
-          <div class="cat-title">Lilly Jack</div>
+          <div class="cat-name">Lilly Jack</div>
           <div class="cat-bio">The cat is a domestic species of small carnivorous mammal</div>
         </div>
         <div class="cat-delete"><i class="material-icons">delete_outline</i></div>
@@ -70,7 +70,7 @@
       <div class="card-panel cat white row">
         <img src="/img/cat.jpg" alt="Cat thumb">
         <div class="cat-details">
-          <div class="cat-title">Lilly Jack</div>
+          <div class="cat-name">Lilly Jack</div>
           <div class="cat-bio">The cat is a domestic species of small carnivorous mammal</div>
         </div>
         <div class="cat-delete"><i class="material-icons">delete_outline</i></div>
@@ -78,11 +78,39 @@
       <div class="card-panel cat white row">
         <img src="/img/cat.jpg" alt="Cat thumb">
         <div class="cat-details">
-          <div class="cat-title">Lilly Jack</div>
+          <div class="cat-name">Lilly Jack</div>
           <div class="cat-bio">The cat is a domestic species of small carnivorous mammal</div>
         </div>
         <div class="cat-delete"><i class="material-icons">delete_outline</i></div>
       </div>
     </div>
+
+    <!--Add cat trigger-->
+    <div class="center">
+      <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+
+    <!--Add cat form-->
+    <div id="side-form" class="sidenav side-form">
+      <form class="add-cat container section">
+        <h6>New Cat</h6>
+        <div class="divider"></div>
+        <div class="input-field">
+          <input placeholder="e.g. Lilly Jake" id="name" type="text" class="validate">
+          <label for="name">Cat Name</label>
+        </div>
+        <div class="input-field">
+          <input placeholder="e.g. Born date, species" id="bio" type="text" class="validate">
+          <label for="bio">Cat Bio</label>
+        </div>
+        <div class="input-field center">
+          <button class="btn-small">Add</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="/js/script.js"></script>
   </body>
 </html>
