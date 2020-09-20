@@ -61,7 +61,13 @@ self.addEventListener("fetch", (e) => {
               return response;
             });
           })
-          .catch(() => caches.match("/pages/offline.html"))
+          .catch(() => {
+            // Conditional fallback for different resource types
+            // For the .html files
+            if (e.request.url.indexOf(".html") > -1) {
+              return caches.match("/pages/offline.html");
+            }
+          })
       );
     })
   );
