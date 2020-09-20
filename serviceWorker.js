@@ -1,5 +1,5 @@
-const staticCache = "site-static-v1";
-const dynamicCache = "site-dynamic-v1";
+const staticCache = "site-static-v2";
+const dynamicCache = "site-dynamic-v2";
 const assets = [
   "/",
   "/index.html",
@@ -10,7 +10,8 @@ const assets = [
   "/css/materialize.min.css",
   "img/cat.png",
   "https://fonts.googleapis.com/icon?family=Material+Icons",
-  "https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2"
+  "https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+  "pages/offline.html"
 ];
 
 // listen to the instal event
@@ -34,7 +35,7 @@ self.addEventListener("activate", (e) => {
       // will wait untill every thing is done
       return Promise.all(
         keys
-          .filter((key) => key !== staticCache)
+          .filter((key) => key !== staticCache && key !== dynamicCache)
           .map((key) => caches.delete(key))
       );
     })
@@ -60,6 +61,7 @@ self.addEventListener("fetch", (e) => {
               return response;
             });
           })
+          .catch(() => caches.match("/pages/offline.html"))
       );
     })
   );
