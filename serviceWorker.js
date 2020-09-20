@@ -1,5 +1,6 @@
 const staticCache = "site-static-v2";
 const dynamicCache = "site-dynamic-v2";
+const maxCacheSize = 3;
 const assets = [
   "/",
   "/index.html",
@@ -13,6 +14,17 @@ const assets = [
   "https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
   "pages/offline.html"
 ];
+
+// optimize the cache size
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]); // delete the oldest one
+      }
+    });
+  });
+};
 
 // listen to the instal event
 self.addEventListener("install", (e) => {
@@ -58,6 +70,7 @@ self.addEventListener("fetch", (e) => {
             // then cache it dynamically!
             return caches.open(dynamicCache).then((cache) => {
               cache.put(e.request.url, response);
+              limitCacheSize(dynamicCache, maxCacheSize); //every time add anything to dynamic cache check the max size
               return response;
             });
           })
