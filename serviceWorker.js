@@ -1,5 +1,5 @@
-const staticCache = "site-static-v1";
-const dynamicCache = "site-dynamic-v1";
+const staticCache = "site-static-v2";
+const dynamicCache = "site-dynamic-v2";
 const maxCacheSize = 15;
 const assets = [
   "/",
@@ -61,27 +61,29 @@ self.addEventListener("activate", (e) => {
 // Why to intercept the request?
 // 1- Maybe to stop the request and get the data fromt the cached assets instead of the server
 self.addEventListener("fetch", (e) => {
-  // e.respondWith(
-  //   caches.match(e.request).then((cacheResponse) => {
-  //     return (
-  //       cacheResponse ||
-  //       fetch(e.request) // If there is a match with a cached request then return it, otherwise do the normal fetch
-  //         .then((response) => {
-  //           // then cache it dynamically!
-  //           return caches.open(dynamicCache).then((cache) => {
-  //             cache.put(e.request.url, response);
-  //             limitCacheSize(dynamicCache, maxCacheSize); //every time add anything to dynamic cache check the max size
-  //             return response;
-  //           });
-  //         })
-  //         .catch(() => {
-  //           // Conditional fallback for different resource types
-  //           // For the .html files
-  //           if (e.request.url.indexOf(".html") > -1) {
-  //             return caches.match("/pages/offline.html");
-  //           }
-  //         })
-  //     );
-  //   })
-  // );
+  if (e.request.url.indexOf("firestore.googleapis.com") === -1) {
+    e.respondWith(
+      caches.match(e.request).then((cacheResponse) => {
+        return (
+          cacheResponse ||
+          fetch(e.request) // If there is a match with a cached request then return it, otherwise do the normal fetch
+            .then((response) => {
+              // then cache it dynamically!
+              return caches.open(dynamicCache).then((cache) => {
+                cache.put(e.request.url, response);
+                limitCacheSize(dynamicCache, maxCacheSize); //every time add anything to dynamic cache check the max size
+                return response;
+              });
+            })
+            .catch(() => {
+              // Conditional fallback for different resource types
+              // For the .html files
+              if (e.request.url.indexOf(".html") > -1) {
+                return caches.match("/pages/offline.html");
+              }
+            })
+        );
+      })
+    );
+  }
 });
