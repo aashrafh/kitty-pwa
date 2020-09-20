@@ -1,6 +1,6 @@
 const staticCache = "site-static-v2";
 const dynamicCache = "site-dynamic-v2";
-const maxCacheSize = 3;
+const maxCacheSize = 15;
 const assets = [
   "/",
   "/index.html",
