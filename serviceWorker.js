@@ -1,12 +1,31 @@
+const staticCacheName = "site-static";
+const assets = [
+  "/",
+  "/index.html",
+  "/js/app.js",
+  "/js/script.js",
+  "/js/materialize.min.js",
+  "/css/style.css",
+  "/css/materialize.min.css",
+  "img/cat.png",
+  "https://fonts.googleapis.com/icon?family=Material+Icons",
+  "https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
+];
+
 //listen to the instal event
 self.addEventListener("install", (e) => {
-  console.log("service worker has been installed");
+  e.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log("caching shell assets");
+      cache.addAll(assets);
+    })
+  );
 });
 
 //Every time you install the service worker for the first time, it becomes active automatically
 //BUT after that, you need to actice it through the active event
 self.addEventListener("activate", (e) => {
-  console.log("service worker has been activated");
+  //   console.log("service worker has been activated");
 });
 
 //The fetch event ==> when fetching something from the server (for ex. css file, js file, images)
@@ -16,5 +35,5 @@ self.addEventListener("activate", (e) => {
 //Why to intercept the request?
 //1- Maybe to stop the request and get the data fromt the cached assets instead of the server
 self.addEventListener("fetch", (e) => {
-  console.log("fetch event", e);
+  //   console.log("fetch event", e);
 });
