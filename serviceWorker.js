@@ -24,7 +24,20 @@ self.addEventListener("install", (e) => {
 
 // Every time you install the service worker for the first time, it becomes active automatically
 // BUT after that, you need to actice it through the active event
-self.addEventListener("activate", (e) => {});
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      // loop through all available caches and delete the old versions
+      // because maybe this causes in more than one promise, then Promise.all()
+      // will wait untill every thing is done
+      return Promise.all(
+        keys
+          .filter((key) => key !== staticCacheName)
+          .map((key) => caches.delete(key))
+      );
+    })
+  );
+});
 
 // The fetch event ==> when fetching something from the server (for ex. css file, js file, images)
 // or even from a js file (for example http request)
