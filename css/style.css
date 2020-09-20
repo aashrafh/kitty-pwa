@@ -41,6 +41,7 @@ nav a span {
   position: absolute;
   bottom: 0;
   right: 0;
+  cursor: pointer;
 }
 .cat-delete i {
   font-size: 18px;

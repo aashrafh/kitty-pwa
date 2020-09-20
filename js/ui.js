@@ -25,3 +25,9 @@ const renderCat = (data, id) => {
 
   cats.innerHTML += cat;
 };
+
+// Delete the cat from the UI
+const removeCat = (id) => {
+  const cat = document.querySelector(`.cat[data-id=${id}]`);
+  cat.remove();
+};

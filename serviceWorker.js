@@ -1,5 +1,5 @@
-const staticCache = "site-static-v3";
-const dynamicCache = "site-dynamic-v2";
+const staticCache = "site-static-v5";
+const dynamicCache = "site-dynamic-v5";
 const maxCacheSize = 15;
 const assets = [
   "/",
@@ -61,7 +61,11 @@ self.addEventListener("activate", (e) => {
 // Why to intercept the request?
 // 1- Maybe to stop the request and get the data fromt the cached assets instead of the server
 self.addEventListener("fetch", (e) => {
-  if (e.request.url.indexOf("firestore.googleapis.com") === -1) {
+  if (
+    e.request.url.indexOf("firestore.googleapis.com") === -1 &&
+    e.request.url.indexOf("google-analytics.com") === -1 &&
+    e.request.url.indexOf("gstatic.com") === -1
+  ) {
     e.respondWith(
       caches.match(e.request).then((cacheResponse) => {
         return (

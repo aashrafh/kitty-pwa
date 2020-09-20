@@ -11,9 +11,10 @@ db.enablePersistence().catch((err) => {
 db.collection("cats").onSnapshot((snapshot) => {
   snapshot.docChanges().forEach((change) => {
     if (change.type == "added") {
-      renderCat(change.doc.data(), change.doc.id);
+      renderCat(change.doc.data(), change.doc.id); // update the UI with the new cat
     }
     if (change.type == "removed") {
+      removeCat(change.doc.id); // delete the cat from the UI
     }
   });
 });
@@ -35,4 +36,15 @@ form.addEventListener("submit", (e) => {
 
   form.name.value = "";
   form.bio.value = "";
+});
+
+// Delete cat
+const catsContainer = document.querySelector(".cats");
+catsContainer.addEventListener("click", (e) => {
+  if (e.target.tagName === "I") {
+    const id = e.target.getAttribute("data-id");
+    db.collection("cats")
+      .doc(id)
+      .delete();
+  }
 });
