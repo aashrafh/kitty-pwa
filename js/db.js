@@ -17,3 +17,22 @@ db.collection("cats").onSnapshot((snapshot) => {
     }
   });
 });
+
+// Add new cat
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent refresh after submit
+
+  // Cat schema
+  const cat = {
+    name: form.name.value,
+    bio: form.bio.value
+  };
+
+  db.collection("cats")
+    .add(cat)
+    .catch((err) => console.log(err));
+
+  form.name.value = "";
+  form.bio.value = "";
+});
