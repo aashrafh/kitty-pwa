@@ -2,7 +2,7 @@
 db.collection("cats").onSnapshot((snapshot) => {
   snapshot.docChanges().forEach((change) => {
     if (change.type == "added") {
-      console.log(change, change.doc.data());
+      renderCat(change.doc.data(), change.doc.id);
     }
     if (change.type == "removed") {
     }
