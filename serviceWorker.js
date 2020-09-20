@@ -1,4 +1,5 @@
-const staticCacheName = "site-static";
+const staticCache = "site-static-v1";
+const dynamicCache = "site-dynamic-v1";
 const assets = [
   "/",
   "/index.html",
@@ -15,7 +16,7 @@ const assets = [
 // listen to the instal event
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open(staticCacheName).then((cache) => {
+    caches.open(staticCache).then((cache) => {
       console.log("caching shell assets");
       cache.addAll(assets);
     })
@@ -25,6 +26,7 @@ self.addEventListener("install", (e) => {
 // Every time you install the service worker for the first time, it becomes active automatically
 // BUT after that, you need to actice it through the active event
 self.addEventListener("activate", (e) => {
+  //Cache versioning
   e.waitUntil(
     caches.keys().then((keys) => {
       // loop through all available caches and delete the old versions
@@ -32,7 +34,7 @@ self.addEventListener("activate", (e) => {
       // will wait untill every thing is done
       return Promise.all(
         keys
-          .filter((key) => key !== staticCacheName)
+          .filter((key) => key !== staticCache)
           .map((key) => caches.delete(key))
       );
     })
@@ -48,7 +50,17 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   e.respondWith(
     caches.match(e.request).then((cacheResponse) => {
-      return cacheResponse || fetch(e.request); // If there is a match with a cached request then return it, otherwise do the normal fetch
+      return (
+        cacheResponse ||
+        fetch(e.request) // If there is a match with a cached request then return it, otherwise do the normal fetch
+          .then((response) => {
+            // then cache it dynamically!
+            return caches.open(dynamicCache).then((cache) => {
+              cache.put(e.request.url, response);
+              return response;
+            });
+          })
+      );
     })
   );
 });
