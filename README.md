@@ -21,13 +21,13 @@ A learning by doing PWA app about Cats! I apply what I learn about PWA in this s
   </div>
 
 ## ⭐ Features <a name = "features"></a>
-- <strong>Responsive</strong>
-- <strong>Accessible</strong>
-- <strong>Offline Mode</strong>
-- <strong>Pre-caching Assets</strong>
-- <strong>Dynamic Caching</strong>
-- <strong>Conditional Fallbacks</strong>
-- <strong>Realtime Database</strong>
+- [x] <strong>Responsive</strong>
+- [x] <strong>Accessible</strong>
+- [x] <strong>Offline Mode</strong>
+- [x] <strong>Pre-caching Assets</strong>
+- [x] <strong>Dynamic Caching</strong>
+- [x] <strong>Conditional Fallbacks</strong>
+- [x] <strong>Realtime Database</strong>
 
 ## ⛏️ Built Using <a name = "tech"></a>
 - [HTML5](https://www.w3schools.com/html/)
