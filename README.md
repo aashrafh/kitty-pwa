@@ -25,7 +25,9 @@ A learning by doing PWA app about Cats! I apply what I learn about PWA in this s
     <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-2.png" alt="Image Demo" width="500"><br/><br/>
     <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-3.png" alt="Image Demo" width="500"><br/><br/>
     <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-4.png" alt="Image Demo" width="500"><br/><br/>
-    <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-5.png" alt="Image Demo" width="500">
+    <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-5.png" alt="Image Demo" width="500"><br/><br/>
+    <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-6.png" alt="Image Demo" width="500"><br/><br/>
+    <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-7.png" alt="Image Demo" width="500">
   </p>
   </div>
 
