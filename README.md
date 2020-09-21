@@ -2,12 +2,21 @@
 
 ## 📝 Table of Contents
 - [About](#about)
-- [Screenshots](#screenshots)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Technology](#tech)
 
 ## 🧐 About <a name = "about"></a>
 A learning by doing PWA app about Cats! I apply what I learn about PWA in this small project.
+
+## ⭐ Features <a name = "features"></a>
+- [x] <strong>Responsive</strong>
+- [x] <strong>Accessible</strong>
+- [x] <strong>Offline Mode</strong>
+- [x] <strong>Pre-caching Assets</strong>
+- [x] <strong>Dynamic Caching</strong>
+- [x] <strong>Conditional Fallbacks</strong>
+- [x] <strong>Realtime Database</strong>
 
 ## 🎥 Screenshots 
 <div name="screenshots" align="center" width=1189px>
@@ -19,15 +28,6 @@ A learning by doing PWA app about Cats! I apply what I learn about PWA in this s
     <img src="https://github.com/aashrafh/kitty-pwa/blob/master/screenshots/kitty-5.png" alt="Image Demo" width="500">
   </p>
   </div>
-
-## ⭐ Features <a name = "features"></a>
-- [x] <strong>Responsive</strong>
-- [x] <strong>Accessible</strong>
-- [x] <strong>Offline Mode</strong>
-- [x] <strong>Pre-caching Assets</strong>
-- [x] <strong>Dynamic Caching</strong>
-- [x] <strong>Conditional Fallbacks</strong>
-- [x] <strong>Realtime Database</strong>
 
 ## ⛏️ Built Using <a name = "tech"></a>
 - [HTML5](https://www.w3schools.com/html/)
